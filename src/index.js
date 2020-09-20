@@ -94,5 +94,5 @@ function submitForm(event){
       'Content-type': 'application/json'
     },
     body: JSON.stringify({ name, hex, votes })
-  })
+  }).then(response => response.json())
 }
