@@ -7,10 +7,16 @@
       "votes": 0
     },
     {
-        "id": 2,
-        "name": "Aqua",
-        "hex": "#00FFFF",
-        "votes": 0
+      "id": 2,
+      "name": "Aqua",
+      "hex": "#00FFFF",
+      "votes": 0
+    },
+    {
+      "name": "Lavender",
+      "hex": "#cdafff",
+      "votes": 0,
+      "id": 4
     }
   ]
 }
