@@ -1,21 +1,27 @@
 {
   "colors": [
     {
-      "id": 1,
-      "name": "Pink",
-      "hex": "#FFC0CB",
-      "votes": 0
+      "name": "Green",
+      "hex": "#00e700",
+      "votes": "2",
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Aqua",
-      "hex": "#00FFFF",
-      "votes": 0
+      "hex": "#00e8b1",
+      "votes": "2",
+      "id": 2
     },
     {
-      "name": "Lavender",
-      "hex": "#cdafff",
-      "votes": 0,
+      "name": "Yellow",
+      "hex": "#d7e515",
+      "votes": "3",
+      "id": 3
+    },
+    {
+      "name": "Lavendar",
+      "hex": "#7f94eb",
+      "votes": "3",
       "id": 4
     }
   ]

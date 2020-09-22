@@ -11,10 +11,7 @@ fetch($global.baseURL)
   function displayColorCards(colors){
     colors.forEach(color => {
       const colorCard = createColorCard(color)
-      createColorName(color, colorCard)
-      createVoteCount(color, colorCard)
-      createVoteButton(colorCard, color)
-      createDeleteButton(colorCard, color)
+
     }
 )}
 
@@ -23,6 +20,10 @@ function createColorCard(color){
   colorCard.classList.add("color-card")
   colorCard.style.backgroundColor = color.hex;
   $global.colorCardContainer.append(colorCard)
+  createColorName(color, colorCard)
+  createVoteCount(color, colorCard)
+  createVoteButton(colorCard, color)
+  createDeleteButton(colorCard, color)
   return colorCard
 }
 
@@ -44,7 +45,7 @@ function createVoteButton(colorCard, color){
   const voteButton = document.createElement('button')
   voteButton.textContent = "+1 Vote!"
   colorCard.append(voteButton)
-  voteButton.addEventListener('click', () => addVote(color))
+  voteButton.addEventListener('click', (event) => addVote(event, color))
 }
 
 function createDeleteButton(colorCard, color){
@@ -54,16 +55,17 @@ function createDeleteButton(colorCard, color){
   deleteButton.addEventListener('click', () =>  deleteColor(colorCard, color))
 }
 
-function addVote(color){
+function addVote(event, color){
   const votes = document.getElementById(`${color.id}`)
   votes.textContent = color.votes += 1
+  const voteNumber = votes.textContent
   fetch(`http://localhost:3000/colors/${color.id}`, {
     method: 'PATCH',
     headers: {
       'Accept': 'application/json',
       'Content-type': 'application/json'
     },
-    body: JSON.stringify(votes)
+    body: JSON.stringify({ votes: voteNumber })
   }).then(response => response.json())
   .then(console.log(color))
 }
@@ -86,7 +88,7 @@ function submitForm(event){
   const hex = formData.get('hex')
   const votes = 0
   const color = { name, hex, votes }
-  displayColorCards(color)
+  createColorCard(color)
   fetch($global.baseURL, {
     method: 'POST',
     headers: {
